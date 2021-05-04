@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Michael\'s Shopping Cart</string>
+    <string name="tab_text_1">Products</string>
+    <string name="tab_text_2">Checkout</string>
+    <string name="textview_placeholder_name">Iphone 7</string>
+    <string name="textview_placeholder_description">4.70-inch touchscreen display with a resolution of 750x1334 pixels at a pixel density of 326 pixels per inch (ppi) and an aspect ratio of 16:9</string>
+    <string name="textview_placeholder_number_in_stock">Number in Stock: 8</string>
+    <string name="button_add_to_cart">Add to Cart</string>
+    <string name="number_in_stock">Number In Stock:  %1$d</string>
+    <string name="textview_no_products_found">No Products available</string>
+    <string name="action_checkout">Checkout</string>
+    <string name="button_remove_from_cart">Remove From Cart</string>
+    <string name="button_checkout">Checkout Items</string>
+    <string name="toast_message_no_products">No products in shopping cart</string>
+    <string name="textview_no_products_in_shopping_cart">Shopping cart is empty</string>
+    <string name="processing_payment">Processing Order</string>
+    <string name="payment_request_successful">Order Request Successful! You are now being redirected to PayPal to Complete the Payment.</string>
+    <string name="toast_redirection_message">You are now being redirected to PayPal to complete the payment</string>
+    <string name="paypal_processing_payment">PayPal Order is processing.</string>
+    <string name="paypal_payment_saved">PayPal Order has been saved.</string>
+    <string name="paypal_payment_created">PayPal Order has been created.</string>
+    <string name="paypal_payment_approved">PayPal Order has been approved.</string>
+    <string name="paypal_payment_voided">PayPal Order has been voided.</string>
+    <string name="paypal_payment_completed">PayPal Order has been completed.</string>
+    <string name="paypal_payment_user_action_required">Your Action is Required. Please Click the Button to proceed.</string>
+    <string name="processing_payment_failed">Order processing Failed. Try again later.</string>
+    <string name="paypal_processing_payment_checking_order">We are checking on your Last order…</string>
+    <string name="paypal_payment_error">Something went wrong. Try again later.</string>
+    <string name="button_complete_payment">Complete Payment</string>
+    <string name="toast_message_action_not_available">Sorry, this action is currently not available. Try again later.</string>
+</resources>

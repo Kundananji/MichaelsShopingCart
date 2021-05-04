@@ -1,0 +1,110 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id  'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.kc.michaelsshoppingcart"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "CLIENT_ID", apikeyProperties['CLIENT_ID'])
+        buildConfigField("String", "CLIENT_SECRET", apikeyProperties['CLIENT_SECRET'])
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    def room_version = "2.3.0"
+    def picasso_version = "2.71828"
+    def live_cycle_version ="2.3.1"
+    def fragment_version ="1.3.3"
+    def appcompat_version = "1.2.0"
+    def material_version = "1.3.0"
+    def constraint_layout_version  = "2.0.4"
+    def anko_version = "0.10.0"
+    def core_version = "1.3.2"
+    def expresso_core_version = "3.3.0"
+    def junit_version = '4.12'
+    def coroutines_android_version = '1.3.2'
+    def retrofit_version = "2.6.2"
+    def retrofit_scalars_version = "2.3.0"
+    def ok_http_logging_interfeceptor_version= "4.2.1"
+    def gson_converter_version = "2.5.0"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$core_version"
+
+    // Android UI and appcompat
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$live_cycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$live_cycle_version"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+
+    //hilt and dagger - dependency injection
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$ok_http_logging_interfeceptor_version"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_converter_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_scalars_version"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version"
+
+    //room database
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$expresso_core_version"
+}
